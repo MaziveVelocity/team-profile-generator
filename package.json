@@ -1,0 +1,18 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "generates application based on user input that displays a page with employee information.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https:github.com/MaziveVelocity/team-profile-generator"
+  },
+  "author": "MaziveVelocty",
+  "license": "ISC"
+}
