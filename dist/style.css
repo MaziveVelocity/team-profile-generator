@@ -1,0 +1,54 @@
+:root{
+    /* variables */
+    --color1: #212181;
+    --color3: white;
+    --color4: dfdfdf;
+}
+
+*{
+    /* font */
+    margin: 0px;
+}
+
+header{
+    text-align: center;
+    padding: 15px;
+    position: sticky;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--color1);
+    color: var(--color3);
+}
+
+.card{
+    margin: 0px;
+}
+
+.card-body{
+    padding: 0;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.50);
+}
+
+.card-title-con{
+    margin: 0;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: var(--color1);
+    color: var(--color3);
+}
+
+.card-info{
+    padding: 15px;
+    text-align: center;
+    background-color: var(--color4);
+}
+
+.info-con{
+    margin: 15px 0px;
+    padding: 10px;
+    background-color: var(--color3);
+    border: 1px solid rgba(128, 128, 128, 0.75);
+}
+
+#main{
+    padding: 30px;
+}

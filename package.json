@@ -14,5 +14,11 @@
     "url": "https:github.com/MaziveVelocity/team-profile-generator"
   },
   "author": "MaziveVelocty",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
 }
