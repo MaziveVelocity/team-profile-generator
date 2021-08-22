@@ -26,8 +26,9 @@ function generateCard(data){
 }
 
 module.exports = obj => {
+    console.log9(obj);
+    console.log9(obj.getName);
 
-    
     return `<html lang="en">
 
     <head>
@@ -49,7 +50,7 @@ module.exports = obj => {
             </header>
             <div class="row d-flex justify-content-center">
             <!-- Container that holds the cards-->
-            ${generateCard()}
+            ${generateCard('test')}
             </div>
         </div>
     </body>
