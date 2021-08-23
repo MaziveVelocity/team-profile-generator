@@ -3,17 +3,19 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generator = require('./src/html-generator');
+const writeFile = require('./src/writeFile')
 
 const employees = [];
 
-function mainPrompt() {
+function mainPrompt(callback) {
     console.log(`
     ===================
       Employee Roster
          Generator
     ===================
-    `);
-    inquirer.prompt([
+    `)
+
+    return inquirer.prompt([
         {
             type: 'input',
             name: 'managerName',
@@ -37,29 +39,27 @@ function mainPrompt() {
         {
             type: 'list',
             name: 'employeeType',
-            message: 'Select type of employee to enter or select finsih: ',
             choices: ['Intern', 'Engineer', 'Finish']
         }
     ]).then(data => {
         const { managerName, email, id, officeNum } = data;
         const manager = new Manager(managerName, email, id, officeNum);
+        employees.push(manager);
+
         switch (data.employeeType) {
-            case 'Intern': internPrompt(manager)
+            case 'Intern': internPrompt(manager, callback)
                 break;
-            case 'Engineer': engineerPrompt(manager)
+            case 'Engineer': engineerPrompt(manager, callback)
                 break;
-            default: return data;
+            default: callback();
         }
     });
 }
 
-function engineerPrompt(obj) {
+function engineerPrompt(obj, callback) {
 
-    if (!obj.employees) {
-        obj.employees = [];
-    }
-
-    inquirer.prompt([
+    console.log(obj)
+    return inquirer.prompt([
         // user questions
         {
             type: 'input',
@@ -89,27 +89,22 @@ function engineerPrompt(obj) {
     ]).then(data => {
         const { engineerName, email, id, github } = data
         const engineer = new Engineer(engineerName, email, id, github);
-        obj.employees.push(engineer);
+        employees.push(engineer);
 
         switch (data.employeeType) {
-            case 'Intern': internPrompt(obj)
+            case 'Intern': internPrompt(obj, callback)
                 break;
-            case 'Engineer': engineerPrompt(obj)
+            case 'Engineer': engineerPrompt(obj, callback)
                 break;
-            default: 
-                console.log(manager)
-                return obj;
+            default: callback()
         }
     });
 }
 
-function internPrompt(obj) {
+function internPrompt(obj, callback) {
 
-    if (!obj.employees) {
-        obj.employees = [];
-    }
-
-    inquirer.prompt([
+    console.log(obj)
+    return inquirer.prompt([
         // user questions
         {
             type: 'input',
@@ -139,18 +134,18 @@ function internPrompt(obj) {
     ]).then(data => {
         const { internName, email, id, schoolName } = data;
         const intern = new Intern(internName, email, id, schoolName);
-        obj.employees.push(intern);
+        employees.push(intern);
 
         switch (data.employeeType) {
-            case 'Intern': internPrompt(obj)
+            case 'Intern': internPrompt(obj, callback)
                 break;
-            case 'Engineer': engineerPrompt(obj)
+            case 'Engineer': engineerPrompt(obj, callback)
                 break;
-            default: 
-                console.log(manager)
-                return obj;
+            default: callback();
         }
     });
 }
 
-mainPrompt();
+mainPrompt(() => {
+   writeFile(generator(employees));
+});

@@ -2,7 +2,7 @@
     /* variables */
     --color1: #212181;
     --color3: white;
-    --color4: dfdfdf;
+    --color4: #dfdfdf;
 }
 
 *{
@@ -13,7 +13,6 @@
 header{
     text-align: center;
     padding: 15px;
-    position: sticky;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: var(--color1);
     color: var(--color3);

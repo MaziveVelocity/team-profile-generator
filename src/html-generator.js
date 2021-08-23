@@ -1,33 +1,92 @@
-function generateCard(data){
-    return `<!-- Start of card -->
-    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center" id="main">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <div class="card-title-con">
-                    <h5 class="card-title">Employee name</h5>
-                    <h5 class="card-subtitle mb-2"><i class="fas fa-user"></i> Role and icon</h5>
-                </div>
-                <!-- Employee info -->
-                <div class="card-info">
-                    <div class="info-con">
-                        <h6>ID: 320</h6>
-                    </div>
-                    <div class="info-con">
-                        <h6>Email: <a href="mailto:myemail@email.com">myemail@email.com</a></h6>
-                    </div>
-                    <div class="info-con">
-                        <h6>additional info</h6>
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
+const Manager = require("../lib/Manager");
+
+function generateCard(arry){
+    var cards = []
+    for(var i = 0; i < arry.length; i++){
+        if(arry[i] instanceof Manager){
+            cards.push(`    <!-- Start of card -->
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center" id="main">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-title-con">
+                            <h5 class="card-title">${arry[i].getName()}</h5>
+                            <h5 class="card-subtitle mb-2"><i class="fas fa-user-tie"></i> ${arry[i].getRole()}</h5>
+                        </div>
+                        <!-- Employee info -->
+                        <div class="card-info">
+                            <div class="info-con">
+                                <h6>ID: ${arry[i].getId()}</h6>
+                            </div>
+                            <div class="info-con">
+                                <h6>Email: <a href="mailto:${arry[i].getEmail()}">${arry[i].getEmail()}</a></h6>
+                            </div>
+                            <div class="info-con">
+                                <h6>Office Number: ${arry[i].getOfficeNum()}</h6>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- end of card -->`
+            <!-- end of card -->`);
+        }else if(arry[i] instanceof Intern){
+            cards.push(`    <!-- Start of card -->
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center" id="main">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-title-con">
+                            <h5 class="card-title">${arry[i].getName()}</h5>
+                            <h5 class="card-subtitle mb-2"><i class="fas fa-user-graduate"></i> ${arry[i].getRole()}</h5>
+                        </div>
+                        <!-- Employee info -->
+                        <div class="card-info">
+                            <div class="info-con">
+                                <h6>ID: ${arry[i].getId()}</h6>
+                            </div>
+                            <div class="info-con">
+                                <h6>Email: <a href="mailto:${arry[i].getEmail()}">${arry[i].getEmail()}</a></h6>
+                            </div>
+                            <div class="info-con">
+                                <h6>School Name: ${arry[i].getSchool()}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of card -->`);
+        }else if(arry[i] instanceof Engineer){
+            cards.push(`    <!-- Start of card -->
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center" id="main">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <div class="card-title-con">
+                            <h5 class="card-title">${arry[i].getName()}</h5>
+                            <h5 class="card-subtitle mb-2"><i class="fas fa-user"></i> ${arry[i].getRole()}</h5>
+                        </div>
+                        <!-- Employee info -->
+                        <div class="card-info">
+                            <div class="info-con">
+                                <h6>ID: ${arry[i].getId()}</h6>
+                            </div>
+                            <div class="info-con">
+                                <h6>Email: <a href="mailto:${arry[i].getEmail()}">${arry[i].getEmail()}</a></h6>
+                            </div>
+                            <div class="info-con">
+                                <h6>Github: <a href="https://github.com/${arry[i].getGithub()}">${arry[i].getGithub()}</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of card -->`);
+        }
+    }
+    return cards.join(`
+    `);
 }
 
-module.exports = obj => {
-    console.log9(obj);
-    console.log9(obj.getName);
+module.exports = arry => {
 
     return `<html lang="en">
 
@@ -50,7 +109,7 @@ module.exports = obj => {
             </header>
             <div class="row d-flex justify-content-center">
             <!-- Container that holds the cards-->
-            ${generateCard('test')}
+            ${generateCard(arry)}
             </div>
         </div>
     </body>
