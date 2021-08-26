@@ -8,8 +8,8 @@ This application allows a user to enter in the manager and employee's informatio
 
 To use this application you will need to clone the repository or download files. Once you have the files
 bring up your prefered terminal (NOTE: this application utilizies NODE.js and must be installed) and then 
-travel to the file folder you have stored the application. When your there run ``node index`` in the 
-terminal. The application will then run.
+travel to the file folder you have stored the application. When your there run ``node install`` in the 
+terminal to download dependencies 
 
 ## Languages
 
