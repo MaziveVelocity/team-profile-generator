@@ -24,4 +24,6 @@ terminal. The application will then run.
 
 ## Tutorial
 
-https://drive.google.com/file/d/10I8rq9Hi4w_AHvuWAJ9HumIxOSYxtRao/view?usp=sharing
+
+
+https://user-images.githubusercontent.com/32405255/130883417-f8e5cc2a-f509-4f48-b30e-257e089c9cc1.mp4
