@@ -19,27 +19,55 @@ function mainPrompt(callback) {
         {
             type: 'input',
             name: 'managerName',
-            message: 'Enter team magager name: '
+            message: 'Enter team magager name (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter name: ');
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
-            message: 'Enter team magager email: '
+            message: 'Enter team magager email (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter email: ');
+                }
+            }
         },
         {
             type: 'input',
             name: 'id',
-            message: 'Enter team magager id: '
+            message: 'Enter team magager id (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter id: ');
+                }
+            }
         },
         {
             type: 'input',
             name: 'officeNum',
-            message: 'Enter team magager office number: '
+            message: 'Enter team magager office number (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter office number: ');
+                }
+            }
         },
         {
             type: 'list',
             name: 'employeeType',
-            choices: ['Intern', 'Engineer', 'Finish']
+            choices: ['Intern', 'Engineer', 'Finish'],
         }
     ]).then(data => {
         const { managerName, email, id, officeNum } = data;
@@ -58,28 +86,55 @@ function mainPrompt(callback) {
 
 function engineerPrompt(obj, callback) {
 
-    console.log(obj)
     return inquirer.prompt([
         // user questions
         {
             type: 'input',
             name: 'engineerName',
-            message: 'Enter engineer name: '
+            message: 'Enter engineer name (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter name: ');
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
-            message: 'Enter engineer email: '
+            message: 'Enter engineer email (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter email: ');
+                }
+            }
         },
         {
             type: 'input',
             name: 'id',
-            message: 'Enter engineer id: '
+            message: 'Enter engineer id (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter id: ');
+                }
+            }
         },
         {
             type: 'input',
             name: 'github',
-            message: 'Enter engineer GitHub username: '
+            message: 'Enter engineer GitHub username (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter github username: ');
+                }
+            }
         },
         {
             type: 'list',
@@ -103,28 +158,55 @@ function engineerPrompt(obj, callback) {
 
 function internPrompt(obj, callback) {
 
-    console.log(obj)
     return inquirer.prompt([
         // user questions
         {
             type: 'input',
             name: 'internName',
-            message: 'Enter intern name: '
+            message: 'Enter intern name (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter name : ');
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
-            message: 'Enter intern email: '
+            message: 'Enter intern email (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter email: ');
+                }
+            }
         },
         {
             type: 'input',
             name: 'id',
-            message: 'Enter intern id: '
+            message: 'Enter intern id (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter id: ');
+                }
+            }
         },
         {
             type: 'input',
             name: 'schoolName',
-            message: 'Enter intern school name: '
+            message: 'Enter intern school name (Required): ',
+            validate: input => {
+                if(input){
+                    return true;
+                }else{
+                    console.log('Please enter school name: ');
+                }
+            }
         },
         {
             type: 'list',

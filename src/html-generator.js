@@ -6,7 +6,7 @@ function generateCard(arry){
     var cards = []
     for(var i = 0; i < arry.length; i++){
         if(arry[i] instanceof Manager){
-            cards.push(`    <!-- Start of card -->
+            cards.push(`<!-- Start of card -->
             <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center" id="main">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
@@ -31,7 +31,7 @@ function generateCard(arry){
             </div>
             <!-- end of card -->`);
         }else if(arry[i] instanceof Intern){
-            cards.push(`    <!-- Start of card -->
+            cards.push(`<!-- Start of card -->
             <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center" id="main">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
@@ -56,7 +56,7 @@ function generateCard(arry){
             </div>
             <!-- end of card -->`);
         }else if(arry[i] instanceof Engineer){
-            cards.push(`    <!-- Start of card -->
+            cards.push(`<!-- Start of card -->
             <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center" id="main">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
@@ -97,6 +97,7 @@ module.exports = arry => {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <title>Employee Roster</title>
     </head>
@@ -107,7 +108,7 @@ module.exports = arry => {
                     <h1>My Team</h1>
                 </div>
             </header>
-            <div class="row d-flex justify-content-center">
+            <div id="main" class="row d-flex justify-content-center">
             <!-- Container that holds the cards-->
             ${generateCard(arry)}
             </div>
